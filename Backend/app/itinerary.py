@@ -11,14 +11,14 @@ def default():
 @itinerary.route("/itinerary_form", methods=['GET', 'POST'])
 def get_itinerary():
     try:
-        # travel_to = request.form.get('travel-to')
-        # travel_from = request.form.get('travel-from')
-        # leave_date = request.form.get('leave-date')
-        # return_date = request.form.get('return-date')
-        # people = request.form.get('people')
-        # things_to_note = request.form.get('things-to-note')
-
         request_data = json.loads(request.data)
+
+        if request.method == 'POST':
+            People = "Three friends and I"
+            To_Note = "We love visiting cultural sites"
+
+            default_question = "I want you to act as a travel planner. I will provide you specific details about my trip, where I'm going, when I'm going, who I'm going with, and important things to note. You will provide a specific itinerary with the vacation plan. My trip: " 
+            + "Where I'm going: " + request_data['travelTo'] + "When I'm going: " + "Who is going: " + "Important things to note: " + To_Note
 
         # retrieve item from frontend by request_data['ID']
         print(request_data['travelTo'])
