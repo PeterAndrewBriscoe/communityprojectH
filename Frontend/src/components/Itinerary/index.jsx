@@ -15,7 +15,9 @@ function Itinerary(){
 
         // console.log(data)
 
-        await fetchSubmitItinerary(data)
+        const result = await fetchSubmitItinerary(data)
+
+        console.log(result)
     }
 
     async function fetchSubmitItinerary(data){
@@ -35,9 +37,7 @@ function Itinerary(){
     }
 
     return <>
-        <h2>Itinerary</h2>
-
-        <form onSubmit={submitItinerary}>
+        <form id="itinerary-form" onSubmit={submitItinerary}>
             <label htmlFor="travel-to">Choose a UK destination or random: </label>
             <input type="text" id="travel-to" name="travel-to" onChange={e => setTravelTo(e.target.value)} />
         

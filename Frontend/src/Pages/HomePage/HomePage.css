@@ -1,0 +1,23 @@
+#home-carousel {
+    display: flex;
+    /* border: red solid; */
+    justify-content: center;
+    flex-direction: column;
+}
+
+#home-carousel-overlay {
+    /* border: greenyellow solid; */
+    color:#fff;
+    position: absolute;
+    z-index: 12;
+    /* top: 50%; */
+    /* left: 0; */
+    width: 100%;
+    text-align: center;
+}
+
+#home-carousel img {
+    /* border: red solid; */
+    width: 100%;
+    min-width: 30%;
+}

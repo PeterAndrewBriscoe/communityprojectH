@@ -1,0 +1,30 @@
+.about-container {
+    /* border: red solid 2px; */
+    display: flex;
+    justify-content: center;
+    
+}
+
+.about-container h1 {
+    margin: 20px 30px;
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+.about-container div {
+    /* border: navy dotted 4px; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-container .about-img-block {
+    /* border: cyan dotted; */
+    width: 50%;
+}
+
+.about-container .about-text {
+    /* border: pink dotted 2px; */
+    padding: 0 30px;
+}
