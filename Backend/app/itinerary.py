@@ -1,7 +1,12 @@
 from flask import Flask, Blueprint, request, json
-from ..OpenAI.main import createItinerary
+from flask_cors import CORS
+from .OpenAI_API.main import createItinerary
+
+## note2self: remember to change to python ver 9 or open ai wont work!!!
+
 
 itinerary = Blueprint('itinerary', __name__) 
+CORS(itinerary)
 
 @itinerary.route("/itinerary")
 def default():
@@ -9,28 +14,19 @@ def default():
 
 @itinerary.route("/itinerary_form", methods=['GET', 'POST'])
 def get_itinerary():
-    try:
-        request_data = json.loads(request.data)
+    request_data = json.loads(request.data)
 
-        if request.method == 'POST':
-            People = "Three friends and I"
-            When = "20/1/2024"
-            To_Note = "We love visiting cultural sites"
+    if request.method == 'POST':
+        travel_to = request_data['travelTo'] 
+        people = str(request_data['people'])
+        leave_date = request_data['leaveDate'] 
+        to_note = request_data['toNote'] 
 
-            default_question = "I want you to act as a travel planner. I will provide you specific details about my trip, where I'm going, when I'm going, who I'm going with, and important things to note. You will provide a specific itinerary with the vacation plan. My trip: " 
-            + "Where I'm going: " + request_data['travelTo'] 
-            + "When I'm going: " + request_data['leaveDate'] 
-            + "Who is going: " + request_data['people'] 
-            + "Important things to note: " + request_data['toNote'] 
+        default_question = "I want you to act as a travel planner. I will provide you specific details about my trip, where I'm going, when I'm going, who I'm going with, and important things to note. You will provide a specific itinerary with the vacation plan. My trip: " + "Where I'm going: " + travel_to + ". When I'm going: " + leave_date + ". Who is going: " + people + ". Important things to note: " + to_note +"."
 
-        # retrieve item from frontend by request_data['ID']
-        print(request_data['travelTo'])
+        output = createItinerary(default_question)
+        # print(output)
 
-        # need to connect opeanai 
-
-        return {200: "works"}
-
-    except:
-        return {404: 'Failed to retreive itinerary data'}
-
-    # return "itinerary"
+        return {200: output}
+    
+    return {200: "get_itinerary == works"}
