@@ -15,7 +15,7 @@ function Header(){
             <NavLink className='nav-link' to='createItinerary'>Create your own itinerary</NavLink>
             <NavLink className='nav-link' to='blog'>Blogs</NavLink>
             <NavLink className='nav-link' to='#'>Search</NavLink>
-            <NavLink className='nav-link' to='#'>Login</NavLink>
+            <NavLink className='nav-link' to='login'>Login</NavLink>
         </Navbar>
         <Outlet />
         <footer>

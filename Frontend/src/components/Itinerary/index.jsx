@@ -8,6 +8,7 @@ function Itinerary(){
     const [returnDate, setReturnDate] = useState('')
     const [people, setPeople] = useState(1)
     const [toNote, setToNote] = useState('')
+    const [hideResult, setHideResult] = useState(true)
 
     async function submitItinerary(e){
         e.preventDefault();
@@ -18,6 +19,8 @@ function Itinerary(){
         const result = await fetchSubmitItinerary(data)
 
         console.log(result)
+
+        // setHideResult(false)
     }
 
     async function fetchSubmitItinerary(data){
@@ -34,6 +37,13 @@ function Itinerary(){
             console.log(err)
             return err
         }
+    }
+
+    // hide and display result
+    function displayResult(){
+        let ele = document.getElementById('itinerary-result')
+        if(!hideResult) ele.style.display = "block"
+        else ele.style.display = "none"
     }
 
     return <>
@@ -60,6 +70,9 @@ function Itinerary(){
 
             <button type="submit">Submit</button>
         </form>
+        <div id="itinerary-result" onChange={displayResult} >
+            <h3>Result</h3>
+        </div>
     </>
 }
 

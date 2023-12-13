@@ -8,7 +8,7 @@
 .about-container h1 {
     margin: 20px 30px;
     display: flex;
-    flex-flow: row-reverse;
+    flex-flow: row-reverse; 
 }
 
 .about-container div {
@@ -20,11 +20,11 @@
 }
 
 .about-container .about-img-block {
-    /* border: cyan dotted; */
+    /* border: cyan solid 3px; */
     width: 50%;
 }
 
 .about-container .about-text {
     /* border: pink dotted 2px; */
     padding: 0 30px;
-}
+} 

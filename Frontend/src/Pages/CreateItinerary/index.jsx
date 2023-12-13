@@ -11,7 +11,6 @@ function CreateItinerary(){
 
         <Itinerary />
         
-        <p>result here: </p>
     </div>
 }
 
