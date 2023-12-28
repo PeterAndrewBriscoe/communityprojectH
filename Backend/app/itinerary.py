@@ -23,7 +23,7 @@ def get_itinerary():
         to_note = request_data['toNote'] 
 
         # Added in here to return as json
-        default_question = "I want you to act as a travel planner. I will provide you specific details about my trip, where I'm going, when I'm going, who I'm going with, and important things to note. You will provide a specific itinerary with the vacation plan and return it as json. My trip: " + "Where I'm going: " + travel_to + ". When I'm going: " + leave_date + ". Who is going: " + people + ". Important things to note: " + to_note +"."
+        default_question = "I want you to act as a travel planner. I will provide you specific details about my trip, where I'm going, when I'm going, who I'm going with, and important things to note. You will provide a specific itinerary with the vacation plan and return it as json. My trip: Where I'm going: " + travel_to + ". When I'm going: " + leave_date + ". Who is going: " + people + ". Important things to note: " + to_note +"."
 
         output = createItinerary(default_question)
         # print(output)

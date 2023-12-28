@@ -9,6 +9,7 @@ function Itinerary(){
     const [people, setPeople] = useState(1)
     const [toNote, setToNote] = useState('')
     const [hideResult, setHideResult] = useState(true)
+    const [result, setResult] = useState()
 
     async function submitItinerary(e){
         e.preventDefault();
@@ -16,7 +17,7 @@ function Itinerary(){
 
         // console.log(data)
 
-        const result = await fetchSubmitItinerary(data)
+        setResult(await fetchSubmitItinerary(data))
 
         console.log(result)
 
@@ -72,6 +73,7 @@ function Itinerary(){
         </form>
         <div id="itinerary-result" onChange={displayResult} >
             <h3>Result</h3>
+            {result}
         </div>
     </>
 }
