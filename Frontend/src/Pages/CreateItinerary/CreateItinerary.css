@@ -1,0 +1,14 @@
+#CreateItinerary-container {
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+    border: red solid 2px;
+}
+
+#itinerary-form {
+    border: green dotted 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}

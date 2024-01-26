@@ -29,4 +29,6 @@ package-lock.json
 Backend/Pipfile.lock
 instance
 
+.env
 API_KEY
+OPENAI_API_KEY

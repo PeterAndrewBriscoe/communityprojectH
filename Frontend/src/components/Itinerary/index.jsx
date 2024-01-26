@@ -8,6 +8,8 @@ function Itinerary(){
     const [returnDate, setReturnDate] = useState('')
     const [people, setPeople] = useState(1)
     const [toNote, setToNote] = useState('')
+    const [hideResult, setHideResult] = useState(true)
+    const [result, setResult] = useState()
 
     async function submitItinerary(e){
         e.preventDefault();
@@ -15,7 +17,11 @@ function Itinerary(){
 
         // console.log(data)
 
-        await fetchSubmitItinerary(data)
+        setResult(await fetchSubmitItinerary(data))
+
+        console.log(result)
+
+        // setHideResult(false)
     }
 
     async function fetchSubmitItinerary(data){
@@ -34,10 +40,15 @@ function Itinerary(){
         }
     }
 
-    return <>
-        <h2>Itinerary</h2>
+    // hide and display result
+    function displayResult(){
+        let ele = document.getElementById('itinerary-result')
+        if(!hideResult) ele.style.display = "block"
+        else ele.style.display = "none"
+    }
 
-        <form onSubmit={submitItinerary}>
+    return <>
+        <form id="itinerary-form" onSubmit={submitItinerary}>
             <label htmlFor="travel-to">Choose a UK destination or random: </label>
             <input type="text" id="travel-to" name="travel-to" onChange={e => setTravelTo(e.target.value)} />
         
@@ -60,6 +71,10 @@ function Itinerary(){
 
             <button type="submit">Submit</button>
         </form>
+        <div id="itinerary-result" onChange={displayResult} >
+            <h3>Result</h3>
+            {result}
+        </div>
     </>
 }
 

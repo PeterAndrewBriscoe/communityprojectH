@@ -1,8 +1,12 @@
 from flask import Flask, Blueprint, request, json
+from flask_cors import CORS
+from .OpenAI_API.main import createItinerary
 
-# from Backend.OpenAI.main import .
+## note2self: remember to change to python ver 9 or open ai wont work!!!
+# create a OPENAI_API_KEY in this folder levele and add: OPENAI_API_KEY="api key here"
 
 itinerary = Blueprint('itinerary', __name__) 
+CORS(itinerary)
 
 @itinerary.route("/itinerary")
 def default():
@@ -10,22 +14,20 @@ def default():
 
 @itinerary.route("/itinerary_form", methods=['GET', 'POST'])
 def get_itinerary():
-    try:
-        # travel_to = request.form.get('travel-to')
-        # travel_from = request.form.get('travel-from')
-        # leave_date = request.form.get('leave-date')
-        # return_date = request.form.get('return-date')
-        # people = request.form.get('people')
-        # things_to_note = request.form.get('things-to-note')
+    request_data = json.loads(request.data)
 
-        request_data = json.loads(request.data)
+    if request.method == 'POST':
+        travel_to = request_data['travelTo'] 
+        people = str(request_data['people'])
+        leave_date = request_data['leaveDate'] 
+        to_note = request_data['toNote'] 
 
-        # retrieve item from frontend by request_data['ID']
-        print(request_data['travelTo'])
+        # Added in here to return as json
+        default_question = "I want you to act as a travel planner. I will provide you specific details about my trip, where I'm going, when I'm going, who I'm going with, and important things to note. You will provide a specific itinerary with the vacation plan and return it as json. My trip: Where I'm going: " + travel_to + ". When I'm going: " + leave_date + ". Who is going: " + people + ". Important things to note: " + to_note +"."
 
-        return {200: "works"}
+        output = createItinerary(default_question)
+        # print(output)
 
-    except:
-        return {404: 'Failed to retreive itinerary data'}
-
-    # return "itinerary"
+        return {200: output}
+    
+    return {200: "get_itinerary == works"}

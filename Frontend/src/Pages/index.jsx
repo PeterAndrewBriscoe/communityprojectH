@@ -1,6 +1,7 @@
 export { default as Home } from './HomePage'
 export { default as About } from './About'
 export { default as Destinations } from './Destinations'
+export { default as CreateItinerary } from './CreateItinerary'
 export { default as Blog } from './Blog'
 export { default as Login } from './Login'
 export { default as Register } from './Register'

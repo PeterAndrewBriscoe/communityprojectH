@@ -16,6 +16,8 @@ cryptography = "*"
 jinja2 = "*"
 markupsafe = "2.0.1"
 sqlalchemy = "1.4"
+configparser = "*"
+python-dotenv = "*"
 
 [dev-packages] 
 

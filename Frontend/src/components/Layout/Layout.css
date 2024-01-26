@@ -1,0 +1,45 @@
+#navbar {
+    display: flex;
+    justify-content: center;
+    /* margin: 0%;
+    padding: 10px; */
+}
+
+.nav-link {
+    margin: 0px 20px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: 550;
+}
+
+.nav-link:hover {
+    color: rgb(0, 250, 196);
+}
+
+footer {
+    background-color: rgb(206, 206, 206);
+    height: 2.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    font-weight: 400;
+    margin: 0 10px;
+}
+
+#footer-links {
+    /* border: pink solid 2px; */
+    display: flex;
+    flex-direction: row;
+}
+
+#footer-links .nav-link {
+    /* border: navy solid 2px; */
+    margin: 0 20px;
+    font-weight: 400;
+    margin: 10px;
+}
